@@ -1,0 +1,182 @@
+
+# T2I-CompBench: A Comprehensive Benchmark for Open-world Compositional Text-to-image Generation
+Kaiyi Huang<sup>1</sup>, Kaiyue Sun<sup>1</sup>, Enze Xie<sup>2</sup>, Zhenguo Li<sup>2</sup>, and Xihui Liu<sup>1</sup>.
+
+**<sup>1</sup>The University of Hong Kong, <sup>2</sup>Huawei Noah’s Ark Lab**
+
+<a href=' https://karine-h.github.io/T2I-CompBench/'><img src='https://img.shields.io/badge/Project-Page-Green'></a>  <a href='https://arxiv.org/'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a> 
+
+
+
+### Installing the dependencies
+
+Before running the scripts, make sure to install the library's training dependencies:
+
+**Important**
+
+To make sure you can successfully run the latest versions of the example scripts, we highly recommend **installing from source** and keeping the install up to date as we update the example scripts frequently and install some example-specific requirements. To do this, execute the following steps in a new virtual environment:
+```bash
+git clone https://github.com/huggingface/diffusers
+cd diffusers
+pip install .
+```
+
+Then cd in the example folder  and run
+```bash
+pip install -r requirements.txt
+```
+
+And initialize an [🤗Accelerate](https://github.com/huggingface/accelerate/) environment with:
+
+```bash
+accelerate config
+```
+
+
+### Finetuning
+1. LoRA finetuning
+
+Use LoRA finetuning method, please refer to the link for downloading "lora_diffusion" directory: 
+
+```
+https://github.com/cloneofsimo/lora/tree/master
+```
+2. Example usage
+
+
+```
+export project_dir=/T2I-CompBench
+cd $project_dir
+
+export train_data_dir="examples/samples/"
+export output_dir="examples/output/"
+export reward_root="examples/reward/"
+export dataset_root="examples/dataset/color.txt"
+export script=GORS_finetune/train_text_to_image.py
+
+accelerate launch --multi_gpu --mixed_precision=fp16 \
+--num_processes=8 --num_machines=1 \
+--dynamo_backend=no "${script}" \
+--train_data_dir="${train_data_dir}" \
+--output_dir="${output_dir}" \
+--reward_root="${reward_root}" \
+--dataset_root="${dataset_root}"
+
+```
+
+
+
+
+The image directory should be a directory containing the images, e.g.,
+
+
+```
+examplex/samples/
+        ├── a green bench and a blue bowl_000000.png
+        ├── a green bench and a blue bowl_000001.png
+        └──...
+
+```
+The reward directory should include a json file named "vqa_result.json", and the json file should be a dictionary that maps from
+`{"question_id", "answer"}`, e.g.,
+
+```
+[{"question_id": 0, "answer": "0.7110"},
+ {"question_id": 1, "answer": "0.7110"},
+ ...]
+```
+
+The dataset should be placed in the directory "examples/dataset/".
+
+
+### Evaluation
+1. Install the requirements
+
+MiniGPT4 is based on the repository, please refer to the link for environment dependencies and weights: 
+```
+https://github.com/Vision-CAIR/MiniGPT-4
+```
+
+2. Example usage
+
+For evaluation, the input images files are stored in the directory "examples/samples/", with the format the same as the training data.
+
+#### BLIP-VQA:
+```
+export project_dir="BLIPvqa_eval/"
+cd $project_dir
+out_dir="examples/"
+python BLIP_vqa.py --out_dir=$out_dir
+```
+The output files are formatted as a json file named "vqa_result.json" in "examples/annotation/" directory.
+
+#### UniDet:
+
+download weight:
+```
+wget https://huggingface.co/shikunl/prismer/resolve/main/expert_weights/Unified_learned_OCIM_RS200_6x%2B2x.pth
+```
+and put under repo experts/expert_weights
+
+```
+export project_dir=UniDet_eval
+cd $project_dir
+
+python determine_position_for_eval.py
+```
+The output files are formatted as a json file named "vqa_result.json" in "examples/labels/annotation_obj_detection" directory.
+
+#### CLIPScore:
+```
+outpath="examples/"
+python CLIPScore_eval/CLIP_similarity.py --outpath=${outpath}
+```
+The output files are formatted as a json file named "vqa_result.json" in "examples/annotation_clip" directory.
+
+#### 3-in-1:
+```
+export project_dir="3_in_1_eval/"
+cd $project_dir
+outpath="examples/"
+data_path="examples/dataset/"
+python "3_in_1.py" --outpath=${outpath} --data_path=${data_path}
+```
+The output files are formatted as a json file named "vqa_result.json" in "examples/annotation_3_in_1" directory.
+
+#### MiniGPT4-CoT:
+If the category to be evaluated is one of color, shape and texture:
+```
+export project_dir=Minigpt4_CoT_eval
+cd $project_dir
+category="color"
+img_file="examples/samples/"
+output_path="examples/"
+python mGPT_cot_attribute.py --category=${category} --img_file=${img_file} --output_path=${output_path} 
+
+```
+
+If the category to be evaluated is one of spatial, non-spatial and complex:
+```
+export project_dir=MiniGPT4_CoT_eval/
+cd $project_dir
+category="non-spatial"
+img_file="examples/samples/"
+output_path="examples"
+python mGPT_cot_general.py --category=${category} --img_file=${img_file} --output_path=${output_path} 
+
+```
+The output files are formatted as a csv file named "mGPT_cot_output.csv" in output_path.
+
+### Inference
+Run the inference.py.
+```
+export pretrained_model_path="/data/share/weight_our_method/color/lora_weight_e357_s124500.pt"
+export prompt="A bathroom with green tile and a red shower curtain"
+python inference.py --pretrained_model_path "${pretrained_model_path}" --prompt "${prompt}"
+```
+
+
+
+  ### License
+
+This project is licensed under the MIT License. See the "License.txt" file for details.
