@@ -175,6 +175,16 @@ export prompt="A bathroom with green tile and a red shower curtain"
 python inference.py --pretrained_model_path "${pretrained_model_path}" --prompt "${prompt}"
 ```
 
+### Citation
+If you're using T2I-CompBench in your research or applications, please cite using this BibTeX:
+```bibtex
+@article{huang2023t2icompbench,
+      title={T2I-CompBench: A Comprehensive Benchmark for Open-world Compositional Text-to-image Generation}, 
+      author={Kaiyi Huang and Kaiyue Sun and Enze Xie and Zhenguo Li and Xihui Liu},
+      journal={arXiv preprint arXiv:2307.06350},
+      year={2023},
+}
+```
 
 
   ### License
