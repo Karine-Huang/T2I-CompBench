@@ -43,9 +43,9 @@ class T2I_CompBench_Dataset(Dataset):
         with open(f"{reward_root}/vqa_result.json","r") as file:
             r = json.load(file)
         reward = torch.zeros((len(r), 1))
-        reward_final = [] #存储删去不符合beta的值
+        reward_final = [] 
         instance_prompt_final=[]
-        instance_prompt_index=[]#记录prompt对应的index
+        instance_prompt_index=[]
         # read test set
         with open(dataset_root,"r") as file:
             data = file.read().splitlines()
@@ -57,12 +57,12 @@ class T2I_CompBench_Dataset(Dataset):
                 # for fixed template and natural prompts, if satisfy the reward, add to training set
                 index = data.index(instance_prompt[i].split('_')[0])
                 if index<560:
-                    if (reward[i] >0.92):  #beta
+                    if (reward[i] >0.92):  #threshold # 0.92 for color;  0.85 for shape; 0.9 for texture; 0.8 for spatial 0.75 for non-spatial; 0.4 for complex 
                         reward_final.append(reward[i])
                         instance_prompt_final.append(instance_prompt[i].split('_')[0])
                         instance_prompt_index.append(instance_prompt[i].split('_')[1].split('.')[0])
                 else:
-                    if reward[i] >0.7:  #beta
+                    if reward[i] >0.7:  #threshold # 0.7 for color;  0.6 for shape; 0.65 for texture; 0.8 for spatial 0.75 for non-spatial; 0.4 for complex
                         reward_final.append(reward[i])
                         instance_prompt_final.append(instance_prompt[i].split('_')[0])
                         instance_prompt_index.append(instance_prompt[i].split('_')[1].split('.')[0])
