@@ -64,10 +64,10 @@ accelerate launch --multi_gpu --mixed_precision=fp16 \
 
 ```
 or run
-'''
+```
 cd T2I-CompBench
 bash GORS_finetune/train.sh
-'''
+```
 
 
 
@@ -114,10 +114,10 @@ out_dir="examples/"
 python BLIP_vqa.py --out_dir=$out_dir
 ```
 or run
-'''
+```
 cd T2I-CompBench
 bash BLIPvqa_eval/test.sh
-'''
+```
 The output files are formatted as a json file named "vqa_result.json" in "examples/annotation_blip/" directory.
 
 #### UniDet:
@@ -144,10 +144,10 @@ outpath="examples/"
 python CLIPScore_eval/CLIP_similarity.py --outpath=${outpath}
 ```
 or run
-'''
+```
 cd T2I-CompBench
 bash CLIPScore_eval/test.sh
-'''
+```
 The output files are formatted as a json file named "vqa_result.json" in "examples/annotation_clip" directory.
 
 #### 3-in-1:
