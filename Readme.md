@@ -63,6 +63,11 @@ accelerate launch --multi_gpu --mixed_precision=fp16 \
 --dataset_root="${dataset_root}"
 
 ```
+or run
+'''
+cd T2I-CompBench
+bash GORS_finetune/train.sh
+'''
 
 
 
@@ -71,7 +76,7 @@ The image directory should be a directory containing the images, e.g.,
 
 
 ```
-examplex/samples/
+examples/samples/
         ├── a green bench and a blue bowl_000000.png
         ├── a green bench and a blue bowl_000001.png
         └──...
@@ -108,15 +113,22 @@ cd $project_dir
 out_dir="examples/"
 python BLIP_vqa.py --out_dir=$out_dir
 ```
-The output files are formatted as a json file named "vqa_result.json" in "examples/annotation/" directory.
+or run
+'''
+cd T2I-CompBench
+bash BLIPvqa_eval/test.sh
+'''
+The output files are formatted as a json file named "vqa_result.json" in "examples/annotation_blip/" directory.
 
 #### UniDet:
 
-download weight:
+download weight and put under repo experts/expert_weights:
 ```
+mkdir -p UniDet_eval/experts/expert_weights
+cd UniDet_eval/experts/expert_weights
 wget https://huggingface.co/shikunl/prismer/resolve/main/expert_weights/Unified_learned_OCIM_RS200_6x%2B2x.pth
 ```
-and put under repo experts/expert_weights
+
 
 ```
 export project_dir=UniDet_eval
@@ -131,6 +143,11 @@ The output files are formatted as a json file named "vqa_result.json" in "exampl
 outpath="examples/"
 python CLIPScore_eval/CLIP_similarity.py --outpath=${outpath}
 ```
+or run
+'''
+cd T2I-CompBench
+bash CLIPScore_eval/test.sh
+'''
 The output files are formatted as a json file named "vqa_result.json" in "examples/annotation_clip" directory.
 
 #### 3-in-1:
@@ -170,7 +187,7 @@ The output files are formatted as a csv file named "mGPT_cot_output.csv" in outp
 ### Inference
 Run the inference.py.
 ```
-export pretrained_model_path="/data/share/weight_our_method/color/lora_weight_e357_s124500.pt"
+export pretrained_model_path="checkpoint/color/lora_weight.pt"
 export prompt="A bathroom with green tile and a red shower curtain"
 python inference.py --pretrained_model_path "${pretrained_model_path}" --prompt "${prompt}"
 ```
