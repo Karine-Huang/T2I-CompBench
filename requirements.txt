@@ -50,7 +50,6 @@ lit==16.0.6
 Markdown==3.4.3
 markdown-it-py==3.0.0
 MarkupSafe==2.1.3
--e git+https://github.com/microsoft/GLIP.git@24ec0ddd8c61534ad5b17e4144864df7003dc7ef#egg=maskrcnn_benchmark
 matplotlib==3.7.1
 mdurl==0.1.2
 mpmath==1.3.0
