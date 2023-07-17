@@ -75,7 +75,7 @@ def main():
 
     out_dir = args.out_dir
 
-    order="" #rename file
+    order="_blip" #rename file
     for i in tqdm(range(np_index)):
         print(f"start VQA{i+1}/{np_index}!")
         os.makedirs(f"{out_dir}/annotation{i + 1}{order}", exist_ok=True)
