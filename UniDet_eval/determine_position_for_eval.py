@@ -106,8 +106,6 @@ def parse_args():
     parser.add_argument(
         "--outpath",
         type=str,
-        # default=None,
-        # required=True,
         default="examples/",
         help="Path to output score",
     )
@@ -115,7 +113,7 @@ def parse_args():
         "--simple_structure",
         type=bool,
         default=True,
-        help="Prompt is simple structure or not",
+        help="Prompt is simple structure or in complex category",
     )
     args = parser.parse_args()
     return args
@@ -158,9 +156,9 @@ def main():
 
                 obj_bounding_box, obj_labels_dict = get_mask_labels(depth, instance_boxes, instance_id)
 
-                obj = []  # 用于储存物体的种类
+                obj = []  
                 for i in range(len(obj_bounding_box)):
-                    obj_name = obj_label_map[obj_labels_dict[i]]  # obj_label_map存储的是物体的种类list
+                    obj_name = obj_label_map[obj_labels_dict[i]]  
                     obj.append(obj_name)
 
 
@@ -207,7 +205,7 @@ def main():
                                     objects.append(doc[j].text)
                                     break
                                 if(j==len(doc)-1):
-                                    flag=True #如果向后搜寻的词都非noun，则再搜索一遍是否为propn
+                                    flag=True 
                             if flag:
                                 for j in range(i + k, len(doc)):
                                     if (j+1<len(doc)) and doc[j].pos_ == 'PROPN' and doc[j+1].pos_ != 'PROPN':
@@ -250,9 +248,8 @@ def main():
 
                     score = 0.25 * instance_score[obj1_pos].item() + 0.25 * instance_score[obj2_pos].item()  # score = avg across two objects score
                     score += determine_position(locality, box1, box2) / 2
-                # todo 放宽条件限制，如果检测到物体，则赋值0.2
                 elif obj1 in obj:
-                    obj1_pos = obj.index(obj1)  # 物体1的位置
+                    obj1_pos = obj.index(obj1)  
                     score = 0.25 * instance_score[obj1_pos].item()
                 elif obj2 in obj:
                     obj2_pos = obj.index(obj2)
