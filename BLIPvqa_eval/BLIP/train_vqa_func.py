@@ -96,18 +96,11 @@ def evaluation(model, data_loader, device, config) :
             for ques_id, answer_id in zip(question_id, answer_ids):
                 result.append({"question_id":int(ques_id.item()), "answer":answer_list[answer_id]})
 
-        elif config['inference'] == 'vqa_prob': #预测yes概率
+        elif config['inference'] == 'vqa_prob': #pred yes probability
             probs = model(image, question, train=False, inference="vqa_prob")
             for prob, ques_id in zip(probs, question_id):
                 result.append({"question_id":int(ques_id.item()), "answer":prob})
 
-        elif config['inference'] == 'vqa_number': #预测数量的概率
-            probs = model(image, question, train=False, inference="vqa_number")
-            for prob, ques_id in zip(probs, question_id):
-                # result.append({"question_id":int(ques_id.item()), "answer": {'one':prob[0].item(), 'two':prob[1].item(), 'three':prob[2].item()}})
-                result.append({"question_id":int(ques_id.item()), "answer": {'zero':prob[0].item(),'one':prob[1].item(), 'two':prob[2].item(), 'three':prob[3].item(),
-                                                                             'four':prob[4].item(),'five':prob[5].item(),'six':prob[6].item(),'seven':prob[7].item(),
-                                                                             'eight':prob[8].item(),'nine':prob[9].item()}})
 
     return result
 
