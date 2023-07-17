@@ -516,8 +516,7 @@ def main():
     unet.requires_grad_(False)
     unet_lora_params, _ = inject_trainable_lora(
         unet, r=args.lora_rank, loras=args.resume_unet,
-        target_replace_module=["CrossAttention"]
-        # target_replace_module=["Attention"]
+        target_replace_module=["CrossAttention", "Attention"]
     )
 
     for _up, _down in extract_lora_ups_down(unet):
@@ -951,8 +950,7 @@ def main():
 
         if args.output_format == "safe" or args.output_format == "both":
             loras = {}
-            # loras["unet"] = (pipeline.unet, {"CrossAttention", "Attention", "GEGLU"})
-            loras["unet"] = (pipeline.unet, {"CrossAttention"})
+            loras["unet"] = (pipeline.unet, {"CrossAttention", "Attention"})
             if args.train_text_encoder:
                 loras["text_encoder"] = (pipeline.text_encoder, {"CLIPAttention"})
 
