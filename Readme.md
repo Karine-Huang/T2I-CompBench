@@ -4,7 +4,8 @@ Kaiyi Huang<sup>1</sup>, Kaiyue Sun<sup>1</sup>, Enze Xie<sup>2</sup>, Zhenguo L
 
 **<sup>1</sup>The University of Hong Kong, <sup>2</sup>Huawei Noah’s Ark Lab**
 
-<a href=' https://karine-h.github.io/T2I-CompBench/'><img src='https://img.shields.io/badge/Project-Page-Green'></a>  <a href='https://arxiv.org/pdf/2307.06350.pdf'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a> 
+<a href='https://karine-h.github.io/T2I-CompBench/'><img src='https://img.shields.io/badge/Project-Page-Green'></a>
+<a href='https://arxiv.org/pdf/2307.06350.pdf'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a> 
 <a href='https://connecthkuhk-my.sharepoint.com/:f:/g/personal/huangky_connect_hku_hk/Er_BhrcMwGREht6gnKGIErMBx8H8yRXLDfWgWQwKaObQ4w?e=YzT5wG'><img src='https://img.shields.io/badge/Dataset-T2I--CompBench-blue'></a> 
 
 
