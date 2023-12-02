@@ -147,7 +147,7 @@ def main():
         for i, test_data in enumerate(tqdm(data_loader)):
             test_pred = model(test_data)
             for k in range(len(test_pred)):
-                instance_boxes = test_pred[k]['instances'].get_fields()['pred_boxes'].tensor  # 得到list的bounding box
+                instance_boxes = test_pred[k]['instances'].get_fields()['pred_boxes'].tensor  # get the bbox of list
                 instance_id = test_pred[k]['instances'].get_fields()['pred_classes']
                 depth = test_data[k]['image'][0]
 
@@ -164,7 +164,7 @@ def main():
 
                 img_path_split = test_data[k]['image_path'].split('/')
                 prompt = img_path_split[-1].split('_')[0] # get prompt from file names
-                vocab_spatial = ['on side of', 'next to', 'near', 'on the left of', 'on the right of', 'on the bottom of', 'on the top of','on top of'] #方位词的词库
+                vocab_spatial = ['on side of', 'next to', 'near', 'on the left of', 'on the right of', 'on the bottom of', 'on the top of','on top of'] #locality words
 
                 locality = None
                 for word in vocab_spatial:
