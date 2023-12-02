@@ -59,7 +59,7 @@ def parse_args():
     parser.add_argument(
         "--np_num",
         type=int,
-        default=2,
+        default=8,
         help="Noun phrase number, can be greater or equal to the actual noun phrase number",
     )
     args = parser.parse_args()
