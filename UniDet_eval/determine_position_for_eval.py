@@ -110,9 +110,9 @@ def parse_args():
         help="Path to output score",
     )
     parser.add_argument(
-        "--simple_structure",
+        "--complex",
         type=bool,
-        default=True,
+        default=False,
         help="Prompt is simple structure or in complex category",
     )
     args = parser.parse_args()
@@ -172,7 +172,7 @@ def main():
                         locality = word
                         break
 
-                if (not args.simple_structure):
+                if (args.complex):
                     #for complex structure
                     nlp = spacy.load('en_core_web_sm')
                     # Define the sentence
