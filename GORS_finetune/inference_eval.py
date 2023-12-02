@@ -12,7 +12,7 @@ from lora_diffusion import patch_pipe
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--from-file",
+        "--from_file",
         type=str,
         default="../examples/dataset/color_val.txt",
         help="if specified, load prompts from this file",
