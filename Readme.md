@@ -217,4 +217,4 @@ If you're using T2I-CompBench in your research or applications, please cite usin
 
   ### License
 
-This project is licensed under the MIT License. See the "License.txt" file for details.
+This project is licensed under the MIT License. See the "License.txt" file for details. test
