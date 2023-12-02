@@ -17,7 +17,7 @@ Kaiyi Huang<sup>1</sup>, Kaiyue Sun<sup>1</sup>, Enze Xie<sup>2</sup>, Zhenguo L
 - [ ] Human evaluation of image-score pairs
 
 
-### Installing the dependencies
+## **Installing the dependencies**
 
 Before running the scripts, make sure to install the library's training dependencies:
 
@@ -42,7 +42,7 @@ accelerate config
 ```
 
 
-### Finetuning
+## **Finetuning**
 1. LoRA finetuning
 
 Use LoRA finetuning method, please refer to the link for downloading "lora_diffusion" directory: 
@@ -103,7 +103,7 @@ The reward directory should include a json file named "vqa_result.json", and the
 The dataset should be placed in the directory "examples/dataset/".
 
 
-### Evaluation
+## **Evaluation**
 1. Install the requirements
 
 MiniGPT4 is based on the repository, please refer to the link for environment dependencies and weights: 
