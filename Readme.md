@@ -10,7 +10,7 @@ Kaiyi Huang<sup>1</sup>, Kaiyue Sun<sup>1</sup>, Enze Xie<sup>2</sup>, Zhenguo L
 
 ## 🚩 **New Features/Updates**
 - ✅ Dec. 02, 2023. Release the inference code for generating images in metric evaluation.
-- ✅ Nov. 03, 2023. 💥 Evaluation metric adopted by 🧨 [**DALL-E 3**](https://cdn.openai.com/papers/dall-e-3.pdf) as the evaluation metric for compositionality.
+- ✅ Oct. 20, 2023. 💥 Evaluation metric adopted by 🧨 [**DALL-E 3**](https://cdn.openai.com/papers/dall-e-3.pdf) as the evaluation metric for compositionality.
 - ✅ Sep. 30, 2023. 💥 Evaluation metric adopted by 🧨 [**PixArt-α**](https://arxiv.org/pdf/2310.00426.pdf) as the evaluation metric for compositionality.
 - ✅ Sep. 22, 2023. 💥 Paper accepted to Neurips 2023.
 - ✅ Jul. 9, 2023. Release the dataset, training and evaluation code.
