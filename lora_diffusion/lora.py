@@ -260,7 +260,7 @@ def inject_trainable_lora(
     verbose: bool = False,
     dropout_p: float = 0.0,
     scale: float = 1.0,
-    use_onlyCross = False #判断是否只更改CrossAttention attn2层
+    use_onlyCross = False # change CrossAttention attn2 layer or not
 ):
     """
     inject lora into model, and returns lora parameter groups.
@@ -274,7 +274,7 @@ def inject_trainable_lora(
 
 
     def LoRA_replace(model):
-        for _module, name, _child_module in _find_modules(     #用for name, module in unet.named_modules():嵌套在外层判断是不是attn2？
+        for _module, name, _child_module in _find_modules(    
             model, target_replace_module, search_class=[nn.Linear]
             # model_tmp, target_replace_module, search_class=[nn.Linear]
         ):
@@ -310,7 +310,7 @@ def inject_trainable_lora(
             _module._modules[name].lora_down.weight.requires_grad = True
             names.append(name)
 
-    if use_onlyCross:#判断是否只更改CrossAttention层
+    if use_onlyCross:# if change CrossAttention layer
         for name, module in model.named_modules():
             if type(module).__name__ == "CrossAttention" and 'attn2' in name:
                 model_tmp = module
@@ -686,7 +686,7 @@ def monkeypatch_or_replace_lora(
     loras,
     target_replace_module=DEFAULT_TARGET_REPLACE,
     r: Union[int, List[int]] = 4,
-    use_onlyCross=False,  #是否只替换unet的cross attention attn2层
+    use_onlyCross=False,  # if replace just unet cross attention attn2 layer
 ):
     def LoRA_load(model):
         for _module, name, _child_module in _find_modules(
@@ -725,7 +725,7 @@ def monkeypatch_or_replace_lora(
             )
 
             _module._modules[name].to(weight.device)
-    if use_onlyCross: #判断是否只更改CrossAttention attn2层
+    if use_onlyCross: # if replace just unet cross attention attn2 layer
         for name, module in model.named_modules():
             if type(module).__name__=="CrossAttention" and 'attn2' in name:
                 model_tmp = module
