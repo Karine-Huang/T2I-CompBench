@@ -196,7 +196,7 @@ export pretrained_model_path="checkpoint/color/lora_weight_e357_s124500.pt.pt"
 export prompt="A bathroom with green tile and a red shower curtain"
 python inference.py --pretrained_model_path "${pretrained_model_path}" --prompt "${prompt}"
 ```
-Run the inference_eval.py to generate images in the test set. As stated in the paper, 10 images are generated per prompt for metric calculation.
+Run the inference_eval.py to generate images in the test set. As stated in the paper, 10 images are generated per prompt for **metric calculation**.
 You can specify the test set by changing the "from_file" parameter among {color_val.txt, shape_val.txt, texture_val.txt, spatial_val.txt, non_spatial_val.txt, complex_val.txt}.
 ```
 export from_file="../examples/dataset/color_val.txt"
