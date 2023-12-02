@@ -8,6 +8,13 @@ Kaiyi Huang<sup>1</sup>, Kaiyue Sun<sup>1</sup>, Enze Xie<sup>2</sup>, Zhenguo L
 <a href='https://arxiv.org/pdf/2307.06350.pdf'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a> 
 <a href='https://connecthkuhk-my.sharepoint.com/:f:/g/personal/huangky_connect_hku_hk/Er_BhrcMwGREht6gnKGIErMBx8H8yRXLDfWgWQwKaObQ4w?e=YzT5wG'><img src='https://img.shields.io/badge/Dataset-T2I--CompBench-blue'></a> 
 
+## 🚩 **New Features/Updates**
+- ✅ Dec. 02, 2023. Release the inference code for generating images in metric evaluation.
+- ✅ Nov. 03, 2023. 💥 Evaluation metric adopted by 🧨 [**DALL-E 3**](https://cdn.openai.com/papers/dall-e-3.pdf) as the evaluation metric for compositionality.
+- ✅ Sep. 30, 2023. 💥 Evaluation metric adopted by 🧨 [**PixArt-α**](https://arxiv.org/pdf/2310.00426.pdf) as the evaluation metric for compositionality.
+- ✅ Sep. 22, 2023. 💥 Paper accepted to Neurips 2023.
+- ✅ Jul. 9, 2023. Release the dataset, training and evaluation code.
+- [ ] Human evaluation of image-score pairs
 
 
 ### Installing the dependencies
