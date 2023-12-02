@@ -42,10 +42,10 @@ def parse_args():
         default="../examples" # TODO
     )
     parser.add_argument(
-        "--ckpt_path",
+        "--pretrained_model_path",
         type=str,
         default=None,
-        # default="checkpoint/color/lora_weight.pt", # TODO
+        # default="checkpoint/color/lora_weight_e357_s124500.pt", # TODO
         help="to load the finetuned checkpoint or not",
     )
     args = parser.parse_args()
@@ -69,8 +69,8 @@ def main():
     # Use the Euler scheduler here instead
     scheduler = DDIMScheduler.from_pretrained(model_id, subfolder="scheduler")
     pipe = StableDiffusionPipeline.from_pretrained(model_id, scheduler=scheduler, torch_dtype=torch.float16)
-    if opt.ckpt_path is not None:
-        patch_pipe(pipe, opt.ckpt_path, patch_text=True, patch_unet=True, patch_ti=False,
+    if opt.pretrained_model_path is not None:
+        patch_pipe(pipe, opt.pretrained_model_path, patch_text=True, patch_unet=True, patch_ti=False,
                 unet_target_replace_module=["CrossAttention"],
                 text_target_replace_module=["CLIPAttention"])
 
