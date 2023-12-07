@@ -24,11 +24,11 @@ Before running the scripts, make sure to install the library's training dependen
 **Important**
 
 To make sure you can successfully run the example scripts, execute the following steps in a new virtual environment.
-We use the diffusers version as 0.15.0.dev
+We use the **diffusers version** as **0.15.0.dev**
 You can either install the development version from PyPI: 
-'''bash
+```bash
 pip install diffusers==0.15.0.dev
-'''
+```
 or install from the provided source:
 ```bash
 unzip diffusers.zip
