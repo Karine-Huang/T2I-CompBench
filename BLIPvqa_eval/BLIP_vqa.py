@@ -114,5 +114,12 @@ def main():
     with open(f"{out_dir}/annotation{order}/vqa_result.json", "w") as file:
         json.dump(r, file)
 
+    # calculate avg of BLIP-VQA as BLIP-VQA score
+    print("BLIP-VQA score:", reward_after/len(r),'!\n')
+    with open(f"{out_dir}/annotation{order}/blip_vqa_score.txt", "w") as file:
+        file.write("BLIP-VQA score:"+str(reward_after/len(r)))
+
+
+
 if __name__ == "__main__":
     main()
