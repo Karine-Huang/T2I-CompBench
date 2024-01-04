@@ -144,6 +144,7 @@ def main():
 
     with torch.no_grad():
         result = []
+        map_result = []
         for i, test_data in enumerate(tqdm(data_loader)):
             test_pred = model(test_data)
             for k in range(len(test_pred)):
@@ -264,13 +265,23 @@ def main():
                 image_dict['answer'] = score
                 result.append(image_dict)
 
+                # add mapping
+                map_dict = {}
+                map_dict['image'] = img_path_split[-1]
+                map_dict['question_id']=int(img_path_split[-1].split('_')[-1].split('.')[0])
+                map_result.append(map_dict)
+        
+
         im_save_path = os.path.join(save_path, 'annotation_obj_detection')
         os.makedirs(im_save_path, exist_ok=True)
 
         with open(os.path.join(im_save_path, 'vqa_result.json'), 'w') as f:
             json.dump(result, f)
         print('vqa result saved in {}'.format(im_save_path))
-
+        
+        # save mapping
+        with open(os.path.join(im_save_path, 'mapping.json'), 'w') as f:
+            json.dump(map_result, f)
 
 if __name__ == "__main__":
     main()
