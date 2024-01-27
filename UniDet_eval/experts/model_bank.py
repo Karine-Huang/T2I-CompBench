@@ -73,6 +73,8 @@ def load_expert_model(task=None):
         parser.add_argument("--mode", default="client")
         parser.add_argument("--port", default=2)
         parser.add_argument("--confidence-threshold", type=float, default=0.5)
+        parser.add_argument("--outpath",type=str)
+        parser.add_argument("--complex", type=bool)
         args = parser.parse_args()
 
         args.config_file = 'experts/obj_detection/configs/Unified_learned_OCIM_RS200_6x+2x.yaml'
