@@ -100,6 +100,15 @@ def main():
     os.makedirs(savepath, exist_ok=True)
     with open(f'{savepath}/vqa_result.json', 'w') as f:
         f.write(json_file)
+    print(f"save to {savepath}")
+    
+    # score avg
+    score=0
+    for i in range(len(sim_dict)):
+        score+=float(sim_dict[i]['answer'])
+    with open(f'{savepath}/score_avg.txt', 'w') as f:
+        f.write('score avg:'+str(score/len(sim_dict)))
+    print("score avg:", score/len(sim_dict))
 
 if __name__ == "__main__":
     main()
