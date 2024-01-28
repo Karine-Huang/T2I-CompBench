@@ -151,7 +151,7 @@ cd $project_dir
 
 python determine_position_for_eval.py
 ```
-To calculate prompts from the "complex" category, set the "--complex" parameter to True; otherwise, set it to False. 
+To calculate prompts from the **"complex" category**, set the **"--complex" parameter to True**; otherwise, set it to False. 
 The output files are formatted as a json file named "vqa_result.json" in "examples/labels/annotation_obj_detection" directory.
 
 #### CLIPScore:
@@ -164,7 +164,7 @@ or run
 cd T2I-CompBench
 bash CLIPScore_eval/test.sh
 ```
-To calculate prompts from the "complex" category, set the "--complex" parameter to True; otherwise, set it to False. 
+To calculate prompts from the **"complex" category**, set the **"--complex" parameter to True**; otherwise, set it to False. 
 The output files are formatted as a json file named "vqa_result.json" in "examples/annotation_clip" directory.
 
 
