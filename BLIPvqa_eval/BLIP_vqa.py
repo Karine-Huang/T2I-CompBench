@@ -30,11 +30,17 @@ def Create_annotation_for_BLIP(image_folder, outpath, np_index=None):
         image_dict['question_id']= cnt
         f = file_name.split('_')[0]
         doc = nlp(f)
-        if(len(list(doc.noun_chunks))>np_index):
-            q_tmp = list(doc.noun_chunks)[np_index]
+        
+        noun_phrases = []
+        for chunk in doc.noun_chunks:
+            if chunk.text not in ['top', 'the side', 'the left', 'the right']:  # todo remove some phrases
+                noun_phrases.append(chunk.text)
+        if(len(noun_phrases)>np_index):#句子的np小于np_index
+            q_tmp = noun_phrases[np_index]
             image_dict['question']=f'{q_tmp}?'
         else:
             image_dict['question'] = ''
+            
 
         image_dict['dataset']="color"
         cnt+=1
