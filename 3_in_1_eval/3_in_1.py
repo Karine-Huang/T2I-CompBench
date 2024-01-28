@@ -15,8 +15,8 @@ def parse_args():
     parser.add_argument(
         "--data_path",
         type = str,
-        default = None,
-        required=True,
+        default = "../examples/dataset",
+        # required=True,
         help = "read prompts from this path",
     )
     args = parser.parse_args()
@@ -52,7 +52,7 @@ def main():
         data=f.readlines()
         data=[i.strip('\n').split('.')[0].lower() for i in data]
 
-    num=30 #number of images for each prompt
+    num=10 #number of images for each prompt
     dataset_num=len(data)
     total_score=np.zeros(num*dataset_num)
     spatial_score=np.array(spatial_score)
