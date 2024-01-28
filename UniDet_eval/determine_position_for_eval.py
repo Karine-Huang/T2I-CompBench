@@ -278,6 +278,14 @@ def main():
         with open(os.path.join(im_save_path, 'vqa_result.json'), 'w') as f:
             json.dump(result, f)
         print('vqa result saved in {}'.format(im_save_path))
+
+        # avg score
+        avg_score = 0
+        for i in range(len(result)):
+            avg_score+=float(result[i]['answer'])
+        with open(os.path.join(im_save_path, 'avg_score.txt'), 'w') as f:
+            f.write('score avg:'+str(avg_score/len(result)))
+        print("avg score:",avg_score/len(result))
         
         # save mapping
         with open(os.path.join(im_save_path, 'mapping.json'), 'w') as f:
