@@ -23,7 +23,7 @@ Before running the scripts, make sure to install the library's training dependen
 
 **Important**
 
-To make sure you can successfully run the example scripts, execute the following steps in a new virtual environment.
+We recommend using the **latest code** to ensure consistency with the results presented in the paper. To make sure you can successfully run the example scripts, execute the following steps in a new virtual environment.
 We use the **diffusers version** as **0.15.0.dev0**
 You can either install the development version from PyPI: 
 ```bash
