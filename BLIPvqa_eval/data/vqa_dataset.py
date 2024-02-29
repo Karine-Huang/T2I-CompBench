@@ -28,8 +28,7 @@ class vqa_dataset(Dataset):
                 self.annotation += json.load(open(os.path.join(ann_root,'%s.json'%f),'r'))
         else:
             # download_url('https://storage.googleapis.com/sfr-vision-language-research/datasets/vqa_test.json',ann_root)
-            # self.annotation = json.load(open(os.path.join(ann_root,'vqa_test.json'),'r'))
-            self.annotation = json.load(open(os.path.join(ann_root,'color_test.json'),'r')) #todo
+            self.annotation = json.load(open(os.path.join(ann_root,'vqa_test.json'),'r')) #todo
 
             # download_url('https://storage.googleapis.com/sfr-vision-language-research/datasets/answer_list.json',ann_root)
             # self.answer_list = json.load(open(os.path.join(ann_root,'answer_list.json'),'r'))
