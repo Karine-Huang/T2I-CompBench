@@ -35,7 +35,7 @@ def Create_annotation_for_BLIP(image_folder, outpath, np_index=None):
         for chunk in doc.noun_chunks:
             if chunk.text not in ['top', 'the side', 'the left', 'the right']:  # todo remove some phrases
                 noun_phrases.append(chunk.text)
-        if(len(noun_phrases)>np_index):#句子的np小于np_index
+        if(len(noun_phrases)>np_index):
             q_tmp = noun_phrases[np_index]
             image_dict['question']=f'{q_tmp}?'
         else:
@@ -50,7 +50,7 @@ def Create_annotation_for_BLIP(image_folder, outpath, np_index=None):
     print('Number of Processed Images:', len(annotations))
 
     json_file = json.dumps(annotations)
-    with open(f'{outpath}/color_test.json', 'w') as f:
+    with open(f'{outpath}/vqa_test.json', 'w') as f:
         f.write(json_file)
 
 def parse_args():
@@ -97,7 +97,7 @@ def main():
 
         with open(f"{out_dir}/annotation{i + 1}{order}/VQA/result/vqa_result.json", "r") as file:
             r = json.load(file)
-        with open(f"{out_dir}/annotation{i + 1}{order}/color_test.json", "r") as file:
+        with open(f"{out_dir}/annotation{i + 1}{order}/vqa_test.json", "r") as file:
             r_tmp = json.load(file)
         for k in range(len(r)):
             if(r_tmp[k]['question']!=''):
