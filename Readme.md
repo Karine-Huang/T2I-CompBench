@@ -163,6 +163,7 @@ download weight and put under repo experts/expert_weights:
 mkdir -p UniDet_eval/experts/expert_weights
 cd UniDet_eval/experts/expert_weights
 wget https://huggingface.co/shikunl/prismer/resolve/main/expert_weights/Unified_learned_OCIM_RS200_6x%2B2x.pth
+wget https://huggingface.co/lllyasviel/ControlNet/resolve/main/annotator/ckpts/dpt_hybrid-midas-501f0c75.pt
 pip install gdown
 gdown https://docs.google.com/uc?id=1C4sgkirmgMumKXXiLOPmCKNTZAc3oVbq
 ```
