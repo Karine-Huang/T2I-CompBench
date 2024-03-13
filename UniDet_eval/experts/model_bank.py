@@ -8,7 +8,7 @@ import torch
 import torchvision.transforms as transforms
 
 
-def load_expert_model(task=None):
+def load_expert_model(task=None, ckpt=None):
     if task == 'depth':
         # DPT model is a standard pytorch model class
         from experts.depth.models import DPTDepthModel
@@ -76,10 +76,15 @@ def load_expert_model(task=None):
         parser.add_argument("--outpath",type=str)
         parser.add_argument("--complex", type=bool)
         args = parser.parse_args()
-
-        args.config_file = 'experts/obj_detection/configs/Unified_learned_OCIM_RS200_6x+2x.yaml'
-        args.opts = ['MODEL.WEIGHTS', 'experts/expert_weights/Unified_learned_OCIM_RS200_6x+2x.pth']
-
+        if ckpt == "RS200":
+            args.config_file = 'experts/obj_detection/configs/Unified_learned_OCIM_RS200_6x+2x.yaml'
+            args.opts = ['MODEL.WEIGHTS', 'experts/expert_weights/Unified_learned_OCIM_RS200_6x+2x.pth']
+        elif ckpt == "R50":
+            args.config_file = 'experts/obj_detection/configs/Unified_learned_OCIM_R50_6x+2x.yaml'
+            args.opts = ['MODEL.WEIGHTS', 'experts/expert_weights/Unified_learned_OCIM_R50_6x+2x.pth']
+        else:
+            raise ValueError("Invalid checkpoint")
+        
         cfg = setup_cfg(args)
         model = DefaultPredictor(cfg).model
         transform = transforms.Compose([

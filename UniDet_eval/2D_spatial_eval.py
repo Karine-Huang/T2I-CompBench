@@ -106,7 +106,7 @@ def parse_args():
     parser.add_argument(
         "--outpath",
         type=str,
-        default="examples/",
+        default="../examples/",
         help="Path to output score",
     )
     parser.add_argument(
@@ -121,13 +121,13 @@ def parse_args():
 
 def main():
     args = parse_args()
-    model, transform = load_expert_model(task='obj_detection')
+    model, transform = load_expert_model(task='obj_detection', ckpt="RS200")
     accelerator = Accelerator(mixed_precision='fp16')
 
     config = yaml.load(open('configs/experts.yaml', 'r'), Loader=yaml.Loader)
     outpath = args.outpath
     data_path= outpath
-    save_path= f'{outpath}/labels'
+    save_path= f'{outpath}/labels_'
 
     batch_size = 64
     dataset = Dataset(data_path,  transform)
@@ -272,7 +272,7 @@ def main():
                 map_result.append(map_dict)
         
 
-        im_save_path = os.path.join(save_path, 'annotation_obj_detection')
+        im_save_path = os.path.join(save_path, 'annotation_obj_detection_2d')
         os.makedirs(im_save_path, exist_ok=True)
 
         with open(os.path.join(im_save_path, 'vqa_result.json'), 'w') as f:
