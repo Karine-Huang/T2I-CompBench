@@ -127,7 +127,7 @@ def main():
     config = yaml.load(open('configs/experts.yaml', 'r'), Loader=yaml.Loader)
     outpath = args.outpath
     data_path= outpath
-    save_path= f'{outpath}/labels_'
+    save_path= f'{outpath}/labels'
 
     batch_size = 64
     dataset = Dataset(data_path,  transform)
