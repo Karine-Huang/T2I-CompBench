@@ -29,7 +29,7 @@ def main():
 
     with open(f'{outpath}/annotation_blip/vqa_result.json', 'r') as f: #read attribute score
         attribute_score=json.load(f)
-    with open(f'{outpath}/annotation_obj_detection_2d/vqa_result.json', 'r') as f:
+    with open(f'{outpath}/labels/annotation_obj_detection_2d/vqa_result.json', 'r') as f:
         spatial_score=json.load(f)
 
     with open(f'{outpath}/annotation_clip/vqa_result.json', 'r') as f: #read action score
