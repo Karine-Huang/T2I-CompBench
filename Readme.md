@@ -8,6 +8,7 @@ Kaiyi Huang<sup>1</sup>, Chengqi Duan<sup>3</sup>, Kaiyue Sun<sup>1</sup>, Enze 
 <a href='https://github.com/Karine-Huang/T2I-CompBench/blob/main/paper/T2I_CompBench%2B%2B.pdf'><img src='https://img.shields.io/badge/T2I--CompBench++-Paper-red'></a> 
 <a href='https://arxiv.org/pdf/2307.06350.pdf'><img src='https://img.shields.io/badge/T2I--CompBench-Arxiv-red'></a> 
 <a href='https://connecthkuhk-my.sharepoint.com/:f:/g/personal/huangky_connect_hku_hk/Er_BhrcMwGREht6gnKGIErMBx8H8yRXLDfWgWQwKaObQ4w?e=YzT5wG'><img src='https://img.shields.io/badge/Dataset-T2I--CompBench++-blue'></a> 
+<a href='https://connecthkuhk-my.sharepoint.com/:f:/g/personal/huangky_connect_hku_hk/Er_BhrcMwGREht6gnKGIErMBx8H8yRXLDfWgWQwKaObQ4w?e=YzT5wG'><img src='https://img.shields.io/badge/Dataset-Human eval images-purple'></a> 
 
 ## 🚩 **New Features/Updates**
 - ✅ Mar. 14, 2024. Release a more comprehensive version of compositional benchmark T2I-CompBench++.
