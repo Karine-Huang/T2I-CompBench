@@ -11,7 +11,7 @@ Kaiyi Huang<sup>1</sup>, Chengqi Duan<sup>3</sup>, Kaiyue Sun<sup>1</sup>, Enze 
 <a href='https://connecthkuhk-my.sharepoint.com/:u:/g/personal/huangky_connect_hku_hk/EfZUFShvGCdArofWOUHXkTgBjcemz2jN6VPmd8tM8mhjeQ?e=NsdFjK'><img src='https://img.shields.io/badge/Dataset-Human eval images-purple'></a> 
 
 ## 🚩 **New Features/Updates**
-- ✅ Jun. 27, 2024. Release [**human evaluation**](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/huangky_connect_hku_hk/EfZUFShvGCdArofWOUHXkTgBjcemz2jN6VPmd8tM8mhjeQ?e=8ybTI5) of image-score pairs.
+- ✅ Jun. 27, 2024. Release [**human evaluation**](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/huangky_connect_hku_hk/EXEFBTzE6khPlsx2qPMjF9EBo6VR2scOo0KRY1M9g4CMkg?e=o5YT2k) of image-score pairs.
 - ✅ Mar. 14, 2024. Release a more comprehensive version of compositional benchmark T2I-CompBench++.
 - ✅ Mar. 05, 2024. 💥 Evaluation metric adopted by 🧨 [**Stable Diffusion 3**](https://arxiv.org/pdf/2403.03206).
 - ✅ Dec. 02, 2023. Release the inference code for generating images in metric evaluation.
