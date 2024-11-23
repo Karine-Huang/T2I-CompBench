@@ -54,47 +54,12 @@ accelerate config
 ```
 
 
-## **Finetuning**
-1. LoRA finetuning
-
-Use LoRA finetuning method, please refer to the link for downloading "lora_diffusion" directory: 
-
-```
-https://github.com/cloneofsimo/lora/tree/master
-```
-2. Example usage
 
 
-```
-export project_dir=/T2I-CompBench
-cd $project_dir
-
-export train_data_dir="examples/samples/"
-export output_dir="examples/output/"
-export reward_root="examples/reward/"
-export dataset_root="examples/dataset/color.txt"
-export script=GORS_finetune/train_text_to_image.py
-
-accelerate launch --multi_gpu --mixed_precision=fp16 \
---num_processes=8 --num_machines=1 \
---dynamo_backend=no "${script}" \
---train_data_dir="${train_data_dir}" \
---output_dir="${output_dir}" \
---reward_root="${reward_root}" \
---dataset_root="${dataset_root}"
-
-```
-or run
-```
-cd T2I-CompBench
-bash GORS_finetune/train.sh
-```
+## **Evaluation**
 
 
-
-
-The image directory should be a directory containing the images, e.g.,
-
+For evaluation, the input images files are stored in the directory "examples/samples/", with the following structures:
 
 ```
 examples/samples/
@@ -107,44 +72,14 @@ The reward directory should include a json file named "vqa_result.json", and the
 `{"question_id", "answer"}`, e.g.,
 
 ```
-[{"question_id": 0, "answer": "0.7110"},
+[{"question_id": 0, "answer": "0.6900"},
  {"question_id": 1, "answer": "0.7110"},
  ...]
 ```
+The question_id is the _last 6 digits_ of the image file name, for example, _a green bench and a blue bowl_000000.png_ is with question_id _0_, and the evaluation score _0.6900_.
 
-The dataset should be placed in the directory "examples/dataset/".
 
 
-## **Evaluation**
-1. Install the requirements
-
-MiniGPT4 and ShareGPT4V are based on their repositories, please refer to the links for environment dependencies and weights: 
-```
-https://github.com/Vision-CAIR/MiniGPT-4
-https://github.com/InternLM/InternLM-XComposer/tree/main/projects/ShareGPT4V
-```
-
-For convenience, you can try the following commands to install ShareGPT4V's environment and download the required weights. 
-```
-export project_dir=MLLM_eval/ShareGPT4V-CoT_eval/
-cd $project_dir
-conda create -n share4v python=3.10 -y
-conda activate share4v
-pip install --upgrade pip
-pip install -e .
-pip install -e ".[train]"
-pip install flash-attn --no-build-isolation
-pip install spacy
-python -m spacy download en_core_web_sm
-mkdir -p Lin-Chen/
-cd Lin-Chen/
-git lfs install
-git clone https://huggingface.co/Lin-Chen/ShareGPT4V-7B_Pretrained_vit-large336-l12
-```
-
-2. Example usage
-
-For evaluation, the input images files are stored in the directory "examples/samples/", with the format the same as the training data.
 
 #### BLIP-VQA:
 ```
@@ -159,6 +94,7 @@ cd T2I-CompBench
 bash BLIPvqa_eval/test.sh
 ```
 The output files are formatted as a json file named "vqa_result.json" in "examples/annotation_blip/" directory.
+
 
 #### UniDet:
 
@@ -222,6 +158,31 @@ python "3_in_1.py" --outpath=${outpath}
 The output files are formatted as a json file named "vqa_result.json" in "examples/annotation_3_in_1" directory.
 
 #### MLLM_eval:
+If you want to use MiniGPT4 and ShareGPT4V, prepare the environment as follows.
+
+MiniGPT4 and ShareGPT4V are based on their repositories, please refer to the links for environment dependencies and weights: 
+```
+https://github.com/Vision-CAIR/MiniGPT-4
+https://github.com/InternLM/InternLM-XComposer/tree/main/projects/ShareGPT4V
+```
+
+For convenience, you can try the following commands to install ShareGPT4V's environment and download the required weights. 
+```
+export project_dir=MLLM_eval/ShareGPT4V-CoT_eval/
+cd $project_dir
+conda create -n share4v python=3.10 -y
+conda activate share4v
+pip install --upgrade pip
+pip install -e .
+pip install -e ".[train]"
+pip install flash-attn --no-build-isolation
+pip install spacy
+python -m spacy download en_core_web_sm
+mkdir -p Lin-Chen/
+cd Lin-Chen/
+git lfs install
+git clone https://huggingface.co/Lin-Chen/ShareGPT4V-7B_Pretrained_vit-large336-l12
+```
 
 ##### GPT-4V:
 
@@ -272,6 +233,72 @@ python mGPT_cot_general.py --category=${category} --img_file=${img_file} --outpu
 
 ```
 The output files are formatted as a csv file named "mGPT_cot_output.csv" in output_path.
+
+
+## **Finetuning**
+If you want to use GORS method to finetune your diffusion model, please follow the steps to prepare the training code and training images.
+
+The training images are stored in the directory "examples/samples/", with the format the same as the evaluation data.
+
+1. LoRA finetuning
+
+Use LoRA finetuning method, please refer to the link for downloading "lora_diffusion" directory: 
+
+```
+https://github.com/cloneofsimo/lora/tree/master
+```
+2. Example usage
+
+
+```
+export project_dir=/T2I-CompBench
+cd $project_dir
+
+export train_data_dir="examples/samples/"
+export output_dir="examples/output/"
+export reward_root="examples/reward/"
+export dataset_root="examples/dataset/color.txt"
+export script=GORS_finetune/train_text_to_image.py
+
+accelerate launch --multi_gpu --mixed_precision=fp16 \
+--num_processes=8 --num_machines=1 \
+--dynamo_backend=no "${script}" \
+--train_data_dir="${train_data_dir}" \
+--output_dir="${output_dir}" \
+--reward_root="${reward_root}" \
+--dataset_root="${dataset_root}"
+
+```
+or run
+```
+cd T2I-CompBench
+bash GORS_finetune/train.sh
+```
+
+
+
+
+The image directory should be a directory containing the images, e.g.,
+
+
+```
+examples/samples/
+        ├── a green bench and a blue bowl_000000.png
+        ├── a green bench and a blue bowl_000001.png
+        └──...
+
+```
+The reward directory should include a json file named "vqa_result.json", and the json file should be a dictionary that maps from
+`{"question_id", "answer"}`, e.g.,
+
+```
+[{"question_id": 0, "answer": "0.7110"},
+ {"question_id": 1, "answer": "0.7110"},
+ ...]
+```
+
+The dataset should be placed in the directory "examples/dataset/".
+
 
 ### Inference
 Run the inference.py to visualize the image.
