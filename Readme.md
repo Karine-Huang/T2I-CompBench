@@ -68,7 +68,7 @@ examples/samples/
         └──...
 
 ```
-The reward directory should include a json file named "vqa_result.json", and the json file should be a dictionary that maps from
+The evaluation result directory should include a json file named "vqa_result.json", and the json file should be a dictionary that maps from
 `{"question_id", "answer"}`, e.g.,
 
 ```
@@ -81,7 +81,7 @@ The question_id is the _last 6 digits_ of the image file name, for example, _a g
 
 
 
-#### BLIP-VQA:
+#### 1. BLIP-VQA for Attribute Binding:
 ```
 export project_dir="BLIPvqa_eval/"
 cd $project_dir
@@ -96,7 +96,7 @@ bash BLIPvqa_eval/test.sh
 The output files are formatted as a json file named "vqa_result.json" in "examples/annotation_blip/" directory.
 
 
-#### UniDet:
+#### 2. UniDet for 2D/3D-Spatial Relationships:
 
 download weight and put under repo experts/expert_weights:
 ```
@@ -134,7 +134,7 @@ python 3D_spatial_eval.py
 ```
 The output files are formatted as a json file named "vqa_result.json" in "examples/labels/annotation_obj_detection_3d" directory.
 
-#### CLIPScore:
+#### 3. CLIPScore for Non-Spatial Relationships:
 ```
 outpath="examples/"
 python CLIPScore_eval/CLIP_similarity.py --outpath=${outpath}
@@ -148,7 +148,7 @@ To calculate prompts from the **"complex" category**, set the **"--complex" para
 The output files are formatted as a json file named "vqa_result.json" in "examples/annotation_clip" directory.
 
 
-#### 3-in-1:
+#### 4. 3-in-1 for Complex Compositions:
 ```
 export project_dir="3_in_1_eval/"
 cd $project_dir
@@ -157,12 +157,12 @@ python "3_in_1.py" --outpath=${outpath}
 ```
 The output files are formatted as a json file named "vqa_result.json" in "examples/annotation_3_in_1" directory.
 
-#### MLLM_eval:
-If you want to use MiniGPT4 and ShareGPT4V, prepare the environment as follows.
+#### 5. MLLM_eval:
+If you want to use ShareGPT4V or GPT-4V as evaluation metrics as in TABLE XIII in [T2I-CompBench++](https://github.com/Karine-Huang/T2I-CompBench/blob/main/paper/T2I_CompBench%2B%2B.pdf), you can evaluate as follows.
+Prepare the environment for ShareGPT4V.
 
-MiniGPT4 and ShareGPT4V are based on their repositories, please refer to the links for environment dependencies and weights: 
+ShareGPT4V is based on its repositories, please refer to the link for environment dependencies and weights: 
 ```
-https://github.com/Vision-CAIR/MiniGPT-4
 https://github.com/InternLM/InternLM-XComposer/tree/main/projects/ShareGPT4V
 ```
 
@@ -210,29 +210,6 @@ python Share_eval.py --category ${category} --file-path ${output_path} --cot
 The output files are formatted as a json file named "vqa_result.json" in "examples/sharegpt4v" directory.
 
 
-##### MiniGPT4-CoT:
-If the category to be evaluated is one of color, shape and texture:
-```
-export project_dir=MLLM_eval/MiniGPT4-CoT_eval/
-cd $project_dir
-category="color"
-img_file="../../examples/samples/"
-output_path="../../examples/"
-python mGPT_cot_attribute.py --category=${category} --img_file=${img_file} --output_path=${output_path} 
-
-```
-
-If the category to be evaluated is one of spatial, non-spatial and complex:
-```
-export project_dir=MLLM_eval/MiniGPT4_CoT_eval/
-cd $project_dir
-category="non-spatial"
-img_file="../../examples/samples/"
-output_path="../../examples"
-python mGPT_cot_general.py --category=${category} --img_file=${img_file} --output_path=${output_path} 
-
-```
-The output files are formatted as a csv file named "mGPT_cot_output.csv" in output_path.
 
 
 ## **Finetuning**
@@ -292,7 +269,7 @@ The reward directory should include a json file named "vqa_result.json", and the
 `{"question_id", "answer"}`, e.g.,
 
 ```
-[{"question_id": 0, "answer": "0.7110"},
+[{"question_id": 0, "answer": "0.6900"},
  {"question_id": 1, "answer": "0.7110"},
  ...]
 ```
