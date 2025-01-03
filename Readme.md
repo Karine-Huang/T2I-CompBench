@@ -96,7 +96,7 @@ bash BLIPvqa_eval/test.sh
 The output files are formatted as a json file named "vqa_result.json" in "examples/annotation_blip/" directory.
 
 
-#### 2. UniDet for 2D/3D-Spatial Relationships:
+#### 2. UniDet for 2D/3D-Spatial Relationships and Numeracy evaluation:
 
 download weight and put under repo experts/expert_weights:
 ```
