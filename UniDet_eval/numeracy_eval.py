@@ -137,10 +137,11 @@ def main():
                 number = ["a", "an", "one", "two", "three", "four", "five", "six", "seven", "eight"]
                 num_obj = []
                 my_obj = []
+                # import pdb; pdb.set_trace()
                 for i in range(len(doc)):
                     if doc[i].text in number:
                         if (i < len(doc) - 2) and (doc[i+1].text + " " + doc[i+2].text in object_s or doc[i+1].text + " " + doc[i+2].text in object_p):
-                            if doc[i+1].text + " " + doc[i+2].text in object_p:
+                            if doc[i+1].text + " " + doc[i+2].text in object_p and doc[i].text not in ["a", "an", "one"]:
                                 my_obj.append(object_s[object_p.index(doc[i+1].text + " " + doc[i+2].text)])
                                 try:
                                     num_obj.append(w2n.word_to_num(doc[i].text))
@@ -150,7 +151,7 @@ def main():
                                 num_obj.append(1)
                                 my_obj.append(doc[i+1].text + " " + doc[i+2].text)
                         elif doc[i+1].text in object_s or doc[i+1].text in object_p:
-                            if doc[i+1].text in object_s:
+                            if doc[i+1].text in object_s and doc[i].text in ["a", "an", "one"]:
                                 num_obj.append(1)
                                 my_obj.append(doc[i+1].text)
                             else:
@@ -160,7 +161,7 @@ def main():
                                 except:
                                     import pdb; pdb.set_trace()
 
-
+                import pdb; pdb.set_trace()
                 score = 0
                 weight = 1.0 / len(my_obj)             
                 for i, my_obj_i in enumerate(my_obj):
