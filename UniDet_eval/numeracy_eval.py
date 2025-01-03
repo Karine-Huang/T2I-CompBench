@@ -137,7 +137,6 @@ def main():
                 number = ["a", "an", "one", "two", "three", "four", "five", "six", "seven", "eight"]
                 num_obj = []
                 my_obj = []
-                # import pdb; pdb.set_trace()
                 for i in range(len(doc)):
                     if doc[i].text in number:
                         if (i < len(doc) - 2) and (doc[i+1].text + " " + doc[i+2].text in object_s or doc[i+1].text + " " + doc[i+2].text in object_p):
@@ -146,7 +145,7 @@ def main():
                                 try:
                                     num_obj.append(w2n.word_to_num(doc[i].text))
                                 except:
-                                    import pdb; pdb.set_trace()
+                                    pass
                             else:
                                 num_obj.append(1)
                                 my_obj.append(doc[i+1].text + " " + doc[i+2].text)
@@ -159,9 +158,7 @@ def main():
                                 try:
                                     num_obj.append(w2n.word_to_num(doc[i].text))
                                 except:
-                                    import pdb; pdb.set_trace()
-
-                import pdb; pdb.set_trace()
+                                    pass
                 score = 0
                 weight = 1.0 / len(my_obj)             
                 for i, my_obj_i in enumerate(my_obj):
