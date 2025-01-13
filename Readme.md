@@ -11,6 +11,7 @@ Kaiyi Huang<sup>1</sup>, Chengqi Duan<sup>3</sup>, Kaiyue Sun<sup>1</sup>, Enze 
 <a href='https://connecthkuhk-my.sharepoint.com/:u:/g/personal/huangky_connect_hku_hk/EfZUFShvGCdArofWOUHXkTgBjcemz2jN6VPmd8tM8mhjeQ?e=NsdFjK'><img src='https://img.shields.io/badge/Dataset-Human eval images-purple'></a> 
 
 ## 🚩 **New Features/Updates**
+- ✅ Jan. 01, 2025. 💥 T2I-Compbench++ accepted to TPAMI.
 - ✅ Nov. 06, 2024. Include evaluation results on [**FLUX.1**](https://github.com/black-forest-labs/flux).
 - ✅ Jun. 27, 2024. Release [**human evaluation**](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/huangky_connect_hku_hk/EXEFBTzE6khPlsx2qPMjF9EBo6VR2scOo0KRY1M9g4CMkg?e=o5YT2k) of image-score pairs.
 - ✅ Mar. 14, 2024. Release a more comprehensive version of compositional benchmark T2I-CompBench++.
