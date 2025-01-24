@@ -303,16 +303,17 @@ If you're using T2I-CompBench in your research or applications, please cite usin
 }
 @article{huang2025t2icompbench++,
 author={Huang, Kaiyi and Duan, Chengqi and Sun, Kaiyue and Xie, Enze and Li, Zhenguo and Liu, Xihui},
-journal={ IEEE Transactions on Pattern Analysis Machine Intelligence },
-title={{ T2I-CompBench++: An Enhanced and Comprehensive Benchmark for Compositional Text-to-Image Generation }},
-year={5555},
-number={01},
-ISSN={1939-3539},
-pages={1-17},
-url = {https://doi.ieeecomputersociety.org/10.1109/TPAMI.2025.3531907},
-publisher={IEEE Computer Society},
-address={Los Alamitos, CA, USA},
-month=jan}
+        journal={ IEEE Transactions on Pattern Analysis Machine Intelligence },
+        title={{ T2I-CompBench++: An Enhanced and Comprehensive Benchmark for Compositional Text-to-Image Generation }},
+        year={5555},
+        number={01},
+        ISSN={1939-3539},
+        pages={1-17},
+        url = {https://doi.ieeecomputersociety.org/10.1109/TPAMI.2025.3531907},
+        publisher={IEEE Computer Society},
+        address={Los Alamitos, CA, USA},
+        month=jan,
+}
 ```
 
 
