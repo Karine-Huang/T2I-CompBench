@@ -296,10 +296,12 @@ python inference_eval.py  --from_file "${from_file}"
 If you're using T2I-CompBench in your research or applications, please cite using this BibTeX:
 ```bibtex
 @article{huang2023t2icompbench,
-      title={T2I-CompBench: A Comprehensive Benchmark for Open-world Compositional Text-to-image Generation}, 
-      author={Kaiyi Huang and Kaiyue Sun and Enze Xie and Zhenguo Li and Xihui Liu},
-      journal={arXiv preprint arXiv:2307.06350},
-      year={2023},
+  title={T2i-compbench: A comprehensive benchmark for open-world compositional text-to-image generation},
+  author={Huang, Kaiyi and Sun, Kaiyue and Xie, Enze and Li, Zhenguo and Liu, Xihui},
+  journal={Advances in Neural Information Processing Systems},
+  volume={36},
+  pages={78723--78747},
+  year={2023}
 }
 @article{huang2025t2icompbench++,
 author={Huang, Kaiyi and Duan, Chengqi and Sun, Kaiyue and Xie, Enze and Li, Zhenguo and Liu, Xihui},
