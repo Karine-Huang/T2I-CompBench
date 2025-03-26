@@ -10,12 +10,12 @@
 This repository contains the following papers:
 > **T2I-CompBench: A Comprehensive Benchmark for Open-world Compositional Text-to-image Generation**<br>
 > [Kaiyi Huang](https://scholar.google.com/citations?user=dB86D_cAAAAJ&hl=zh-CN&oi=sra)<sup>1</sup>, [Kaiyue Sun](https://scholar.google.com/citations?user=mieuBzUAAAAJ&hl=zh-CN&oi=sra)<sup>1</sup>, [Enze Xie](https://xieenze.github.io/)<sup>2</sup>, [Zhenguo Li](https://scholar.google.com.sg/citations?user=XboZC1AAAAAJ&hl=en)<sup>2</sup>, [Xihui Liu](https://xh-liu.github.io/)<sup>1+</sup><br>
-> <sup>1</sup>The University of Hong Kong, <sup>2</sup>Huawei Noah’s Ark Lab
+> <sup>1</sup>The University of Hong Kong, <sup>2</sup>Huawei Noah’s Ark Lab<br>
 > Conference on Neural Information Processing Systems (**Neurips**), 2023
 
 > **T2I-CompBench++: An Enhanced and Comprehensive Benchmark for Compositional Text-to-image Generation**<br>
-> [Kaiyi Huang](https://scholar.google.com/citations?user=dB86D_cAAAAJ&hl=zh-CN&oi=sra)<sup>1</sup>, [Chengqi Duan](https://scholar.google.com/citations?user=r9qb4ZwAAAAJ&hl=zh-CN&oi=sra)<sup>3</sup>, [Kaiyue Sun](https://scholar.google.com/citations?user=mieuBzUAAAAJ&hl=zh-CN&oi=sra)<sup>1</sup>, [Enze Xie](https://xieenze.github.io/)<sup>2</sup>, [Zhenguo Li](https://scholar.google.com.sg/citations?user=XboZC1AAAAAJ&hl=en)<sup>2</sup>, [Xihui Liu](https://xh-liu.github.io/)<sup>1+</sup><br>
-> <sup>1</sup>The University of Hong Kong, <sup>2</sup>Huawei Noah’s Ark Lab, <sup>3</sup>Tsinghua University
+> [Kaiyi Huang](https://scholar.google.com/citations?user=dB86D_cAAAAJ&hl=zh-CN&oi=sra)<sup>1</sup>, [Chengqi Duan](https://scholar.google.com/citations?user=r9qb4ZwAAAAJ&hl=zh-CN&oi=sra)<sup>1,3</sup>, [Kaiyue Sun](https://scholar.google.com/citations?user=mieuBzUAAAAJ&hl=zh-CN&oi=sra)<sup>1</sup>, [Enze Xie](https://xieenze.github.io/)<sup>2</sup>, [Zhenguo Li](https://scholar.google.com.sg/citations?user=XboZC1AAAAAJ&hl=en)<sup>2</sup>, [Xihui Liu](https://xh-liu.github.io/)<sup>1+</sup><br>
+> <sup>1</sup>The University of Hong Kong, <sup>2</sup>Huawei Noah’s Ark Lab, <sup>3</sup>Tsinghua University<br>
 > IEEE Transactions on Pattern Analysis and Machine Intelligence (**TPAMI**), 2025
 
 ## 🚩 **New Features/Updates**
