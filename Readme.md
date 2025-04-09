@@ -301,7 +301,7 @@ python inference_eval.py  --from_file "${from_file}"
 ```
 
 ### Citation
-If you're using T2I-CompBench in your research or applications, please cite using this BibTeX:
+If you're using T2I-CompBench(++) in your research or applications, please cite using this BibTeX:
 ```bibtex
 @article{huang2023t2icompbench,
   title={T2i-compbench: A comprehensive benchmark for open-world compositional text-to-image generation},
