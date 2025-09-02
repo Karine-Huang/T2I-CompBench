@@ -329,5 +329,6 @@ author={Huang, Kaiyi and Duan, Chengqi and Sun, Kaiyue and Xie, Enze and Li, Zhe
 
   ### License
 
-This project is licensed under the MIT License. See the "License.txt" file for details. 
+This project is licensed under the MIT License. See the "License.txt" file for details. For detailed information on third-party licenses, please see the [NOTICE.md](https://github.com/Karine-Huang/T2I-CompBench/edit/main/NOTICE.md) file.
+
 
