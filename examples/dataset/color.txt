@@ -625,7 +625,6 @@ a blue suitcase and a red vase
 a blue cup and a brown sheep
 a brown cup and a blue sheep
 a brown bear and a red train
-a red bear and a brown train
 a blue cup and a red orange
 a red cup and a blue orange
 a green apple and a red suitcase
@@ -698,62 +697,42 @@ a brown bird and a blue bear
 a black apple and a green backpack
 a blue cup and a green cell phone
 a red book and a yellow vase
-a red cylinder and a blue cube
-a blue cylinder and a red cube
 a red apple and yellow bananas
 a yellow apple and red bananas
 a black hat and a red scarf
 a red hat and a black scarf
 a silver spoon and a blue plate
-a blue spoon and a silver plate
 a yellow bus and a green tree
 a green bus and a yellow tree
-a blue bird and a yellow canary
-a canary and a yellow bluebird
 a red apple and a purple grape
 a purple apple and a red grape
 a white dove and a black feather
 a black dove and a white feather
 a brown acorn and a green leaf
 a green acorn and a brown leaf
-a yellow taxi and a black tire
-a black taxi and a yellow tire
-a green snake and a brown log
-a brown snake and a green log
 a red stop sign and a white line
-a white stop sign and a red line
+a stop sign and red white line
 a black cat and a brown mouse
 a brown cat and a black mouse
 a blue pen and a yellow highlighter
 a yellow pen and a blue highlighter
-a white moon and a black sky
 a black moon and a white sky
 a yellow pencil and a blue notebook
-a blue pencil and a yellow notebook
 a green leaf and a yellow flower
 a yellow leaf and a green flower
 a black cat and a white paw
 a white cat and a black paw
 a yellow duck and a blue pond
-a blue duck and a yellow pond
 a green frog and a brown pond
 a brown frog and a green pond
 a yellow sun and a red sunset
 a red sun and a yellow sunset
-a blue jay and a green parrot
-a green jay and a blue parrot
-a brown squirrel and a black nut
-a black squirrel and a brown nut
-a white swan and a black lake
-a black swan and a white lake
 a blue pen and a black ink
 a black pen and a blue ink
 a green grass and a yellow dandelion
 a yellow grass and a green dandelion
 a black cat and a gray mouse
 a gray cat and a black mouse
-a brown log and a green moss
-a green log and a brown moss
 a red apple and a yellow pear
 a yellow apple and a red pear
 a white snow and a blue sled
@@ -774,19 +753,40 @@ a green leaf and a yellow butterfly
 a yellow leaf and a green butterfly
 a red tomato and a yellow pepper
 a yellow tomato and a red pepper
-a brown guitar and a black amplifier
-a black guitar and a brown amplifier
 a red apple and a green kiwi
 a green apple and a red kiwi
+a white piano and a black bench
+a black piano and a white bench
+a brown jacket and a black hat
+a red bear and a brown train
+a red cylinder and a blue cube
+a blue cylinder and a red cube
+a blue spoon and a silver plate
+a blue bird and a yellow canary
+a canary and a yellow bluebird
+a yellow taxi and a black tire
+a black taxi and a yellow tire
+a green snake and a brown log
+a brown snake and a green log
+a white moon and a black sky
+a blue pencil and a yellow notebook
+a blue duck and a yellow pond
+a blue jay and a green parrot
+a green jay and a blue parrot
+a brown squirrel and a black nut
+a black squirrel and a brown nut
+a white swan and a black lake
+a black swan and a white lake
+a brown log and a green moss
+a green log and a brown moss
+a brown guitar and a black amplifier
+a black guitar and a brown amplifier
 a white envelope and a blue stamp
 a blue envelope and a white stamp
 a blue bicycle and a red helmet
 a red bicycle and a blue helmet
-a yellow taxi and a black tire
-a black taxi and a yellow tire
-a white piano and a black bench
-a black piano and a white bench
-a brown jacket and a black hat
+a yellow taxi and a red tire
+a red taxi and a yellow tire
 a black jacket and a brown hat
 a blue rose and a green tulip
 a green rose and a blue tulip
@@ -798,146 +798,6 @@ a red lipstick and a pink blush
 a pink lipstick and a red blush
 a blue bag and a green water bottle
 a green bag and a blue water bottle
-A room with blue walls and a white sink and door.
-A room with white walls and a blue sink and door.
-A black cat is inside a white toilet.
-A white cat is inside a black toilet.
-A brown purse is sitting on a green bench.
-A green purse is sitting on a brown bench.
-Some yellow objects are floating in red liquid in a jar.
-Some red objects are floating in yellow liquid in a jar.
-A black cat with white stomach takes a pose.
-A white cat with black stomach takes a pose.
-Spacious white kitchen with brown cabinetry, sink and appliances.
-Spacious brown kitchen with white cabinetry, sink and appliances.
-A red truck has a black dog in the drivers chair.
-A black truck has a red dog in the drivers chair.
-A door is open to a white bathroom that has a black garbage back on the floor.
-A door is open to a black bathroom that has a white garbage back on the floor.
-a man in a gray and blur hat with a blue shirt and bowtie
-a man in a blue and blur hat with a gray shirt and bowtie
-A black and white cat sitting in a green bowl.
-A black and green cat sitting in a white bowl.
-a white stoves burners with a green timer and some decorations
-a green stoves burners with a white timer and some decorations
-a white bathroom a sink and a brown mirror
-a brown bathroom a sink and a white mirror
-A very small brown colored bathroom with a white toilet.
-A very small white colored bathroom with a brown toilet.
-An orange cat sleeping on top of a red car.
-An red cat sleeping on top of a orange car.
-A white and bright bathroom with silver fixtures.
-A silver and bright bathroom with white fixtures.
-A bathroom with a tan sink and white toliet.
-A bathroom with a white sink and tan toliet.
-A white kitchen with a grey counter top.
-A grey kitchen with a white counter top.
-A woman in orange and a woman in pink riding horses.
-A woman in pink and a woman in orange riding horses.
-A bathroom with white fixtures, a red tiled floor and a black counter.
-A bathroom with red fixtures, a white tiled floor and a black counter.
-A gray cat is looking at an upside down blue bicycle.
-A blue cat is looking at an upside down gray bicycle.
-a brown and white kitchen with a silver refrigerator
-a brown and silver kitchen with a white refrigerator
-a white toilet with a brown lid and a sink behind it
-a brown toilet with a white lid and a sink behind it
-A beige tiled bathroom with white fixtures and a mirror.
-A white tiled bathroom with beige fixtures and a mirror.
-A brown dog standing in front of white cabinets.
-A white dog standing in front of brown cabinets.
-A gray cat standing on top of a black car.
-A black cat standing on top of a gray car.
-a white airplane flies across the blue sky
-a blue airplane flies across the white sky
-The white dog with black spots is riding in a basket on the back of the motor bike.
-The black dog with white spots is riding in a basket on the back of the motor bike.
-A large silver pot sitting on a counter next to a red brick wall.
-A large red pot sitting on a counter next to a silver brick wall.
-An orange cutting knife on top of a black case.
-An black cutting knife on top of a orange case.
-A parked black motorcycle in front of a brown house.
-A parked brown motorcycle in front of a black house.
-A man in a red shirt and black pants resting on a bench.
-A man in a black shirt and red pants resting on a bench.
-View of a narrow bathroom with white vanity and commode with brown tile
-View of a narrow bathroom with brown vanity and commode with white tile
-a kitchen with black cupboards and a silver stove
-a kitchen with silver cupboards and a black stove
-Kitchen with view of stainless stove, stainless sink, white countertop and white flour with black spots.
-Kitchen with view of stainless stove, stainless sink, white countertop and white flour with black spots.
-A bathroom with a brown shower curtain and white toilet
-A bathroom with a white shower curtain and brown toilet
-A bathroom with a white toilet and an orange tub.
-A bathroom with a orange toilet and an white tub.
-A plain kitchen with beige cabinets and brown floors.
-A plain kitchen with brown cabinets and beige floors.
-A white toilet with a blue seat on a display platform.
-A blue toilet with a white seat on a display platform.
-A kitchen has red cabinets, and white appliances.
-A kitchen has white cabinets, and red appliances.
-a light brown bathroom with some white towels and a toilet
-a light white bathroom with some brown towels and a toilet
-An orange motorcycle parked behind a blue car.
-An blue motorcycle parked behind a orange car.
-a man throwing a white piece of paper into a black seated toilet.
-a man throwing a black piece of paper into a white seated toilet.
-A bright yellow wall in a bathroom adds appeal to a white tiled floor.
-A bright white wall in a bathroom adds appeal to a yellow tiled floor.
-A bathroom is white with a blue, black, and white floor.
-A bathroom is white with a blue, black, and white floor.
-A white bathroom has a red towel on the bar.
-A red bathroom has a white towel on the bar.
-A kitchen with white cabinets and a black stove.
-A kitchen with black cabinets and a white stove.
-A narrow bathroom has gold paint and a brown wall.
-A narrow bathroom has brown paint and a gold wall.
-A light brown bathroom with a white toilet and sink.
-A light white bathroom with a brown toilet and sink.
-A black ct with green eyes sitting in the sun.
-A green ct with black eyes sitting in the sun.
-An empty parking lot features green trees and a single white bicycle.
-An empty parking lot features white trees and a single green bicycle.
-A pristine white bath room with a pedestal sink, black and white tile and a window at the far end
-A pristine white bath room with a pedestal sink, black and white tile and a window at the far end
-A cat sitting next to a white bicycle on a green lawn.
-A cat sitting next to a green bicycle on a white lawn.
-A bathroom has gold wall and brown counters.
-A bathroom has brown wall and gold counters.
-A small bathroom with grey tile and a vivid red blacksplash in the shower
-A small bathroom with red tile and a vivid grey blacksplash in the shower
-A white train colliding with a black car.
-A black train colliding with a white car.
-A blue motorcycle parked next to a red motorcycle on a lush green field.
-A blue motorcycle parked next to a green motorcycle on a lush red field.
-A white kitchen counter with a big, brown bowl on it.
-A brown kitchen counter with a big, white bowl on it.
-An orange Volkswagen bus with a white roof.
-An white Volkswagen bus with a orange roof.
-A man has yellow tennis shoes with orange laces.
-A man has orange tennis shoes with yellow laces.
-A wood framed mirror hangs over a white, square sink unit with silver fittings.
-A wood framed mirror hangs over a silver, square sink unit with white fittings.
-A motorcycle rider is standing next to his black motor cycle while a red traffic light hangs in the sky.
-A motorcycle rider is standing next to his red motor cycle while a black traffic light hangs in the sky.
-two women sitting on benches one with a black shirt the other blue
-two women sitting on benches one with a blue shirt the other black
-A man with long gray hair in a pony tail has a beard and is wearing a black hat and dark colored suit while he looks at his cell phone.
-A man with long black hair in a pony tail has a beard and is wearing a gray hat and dark colored suit while he looks at his cell phone.
-A woman wearing a white shirt and black vest looks into a mirror while holding a camera.
-A woman wearing a black shirt and white vest looks into a mirror while holding a camera.
-the kitchen has brown cabinets and a silver refrigerator
-the kitchen has silver cabinets and a brown refrigerator
-A gray and white kitten in a white bathroom sink.
-A white and white kitten in a gray bathroom sink.
-A bathroom with a black sink counter next to a white toilet.
-A bathroom with a white sink counter next to a black toilet.
-A white toilet bowl with an electronic brown seat.
-A brown toilet bowl with an electronic white seat.
-A tan dog with sky blue eyes posing for a picture with a man sitting on a chair in the background.
-A blue dog with sky tan eyes posing for a picture with a man sitting on a chair in the background.
-a black cat sitting in a white bathtube looking down
-a white cat sitting in a black bathtube looking down
 A bathroom with white tile and a beige toilet.
 A bathroom with beige tile and a white toilet.
 A green bathroom with a mirror and a pink sink.
@@ -969,7 +829,7 @@ A tan bath tub sits empty in a white, clean bathroom.
 two white sheep, a black goat and a white goat in a field
 two black sheep, a white goat and a white goat in a field
 A black and white cat sits in a white sink.
-A black and white cat sits in a white sink.
+A black and white cat sits in a black sink.
 A woman in a white shirt and jeans holds a pink umbrella in the rain.
 A woman in a pink shirt and jeans holds a white umbrella in the rain.
 A small bathroom with a small brown toilet next to a white sink.
@@ -985,7 +845,7 @@ A green scooter is parked near a curb in front of a blue vintage car.
 A dining area features a wood table and chairs, a silver refrigerator and light brown cabinets.
 A dining area features a wood table and chairs, a brown refrigerator and light silver cabinets.
 Bathroom scene, white commode and matching white sink on light brown tone tiled floor.
-Bathroom scene, white commode and matching white sink on light brown tone tiled floor.
+Bathroom scene, white commode and matching brown sink on light white tone tiled floor.
 A traffic light with a smile green light above a red sign.
 A traffic light with a smile red light above a green sign.
 The man on the large black motorcycle has pink chaps.
@@ -997,4 +857,4 @@ The white and red clock with a yellow roof reads 11:44.
 A man in a gray jacket standing in a kitchen next to a black dog.
 A man in a black jacket standing in a kitchen next to a gray dog.
 a white bathroom with a black and white shower curtain
-a white bathroom with a black and white shower curtain
+a black bathroom with a black and white shower curtain

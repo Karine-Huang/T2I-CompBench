@@ -225,8 +225,8 @@ a white envelope and a blue stamp
 a blue envelope and a white stamp
 a blue bicycle and a red helmet
 a red bicycle and a blue helmet
-a yellow taxi and a black tire
-a black taxi and a yellow tire
+a yellow taxi and a red tire
+a red taxi and a yellow tire
 a black jacket and a brown hat
 a blue rose and a green tulip
 a green rose and a blue tulip
@@ -269,7 +269,7 @@ A tan bath tub sits empty in a white, clean bathroom.
 two white sheep, a black goat and a white goat in a field
 two black sheep, a white goat and a white goat in a field
 A black and white cat sits in a white sink.
-A black and white cat sits in a white sink.
+A black and white cat sits in a black sink.
 A woman in a white shirt and jeans holds a pink umbrella in the rain.
 A woman in a pink shirt and jeans holds a white umbrella in the rain.
 A small bathroom with a small brown toilet next to a white sink.
@@ -285,7 +285,7 @@ A green scooter is parked near a curb in front of a blue vintage car.
 A dining area features a wood table and chairs, a silver refrigerator and light brown cabinets.
 A dining area features a wood table and chairs, a brown refrigerator and light silver cabinets.
 Bathroom scene, white commode and matching white sink on light brown tone tiled floor.
-Bathroom scene, white commode and matching white sink on light brown tone tiled floor.
+Bathroom scene, white commode and matching brown sink on light white tone tiled floor.
 A traffic light with a smile green light above a red sign.
 A traffic light with a smile red light above a green sign.
 The man on the large black motorcycle has pink chaps.
@@ -297,4 +297,4 @@ The white and red clock with a yellow roof reads 11:44.
 A man in a gray jacket standing in a kitchen next to a black dog.
 A man in a black jacket standing in a kitchen next to a gray dog.
 a white bathroom with a black and white shower curtain
-a white bathroom with a black and white shower curtain
+a black bathroom with a black and white shower curtain
