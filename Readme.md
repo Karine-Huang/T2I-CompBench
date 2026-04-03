@@ -193,15 +193,29 @@ git lfs install
 git clone https://huggingface.co/Lin-Chen/ShareGPT4V-7B_Pretrained_vit-large336-l12
 ```
 
-##### GPT-4V:
+##### GPT-4V (OpenAI):
 
-Add your openai api key [(instructions)](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key) at line 13. 
+Set your OpenAI API key via the `OPENAI_API_KEY` environment variable (or edit line 13 of `gpt4v_eval.py` directly).
 
-```
+```bash
+export OPENAI_API_KEY="your-openai-api-key"
 export project_dir=MLLM_eval
 cd $project_dir
-python MLLM_eval/gpt4v_eval.py --category "color" --start 0 --step 10
+python gpt4v_eval.py --category "color" --start 0 --step 10
 ```
+
+##### MiniMax M2.7 (alternative to GPT-4V):
+
+[MiniMax M2.7](https://www.minimax.io) is a multimodal LLM with vision support and an OpenAI-compatible API, providing a cost-effective alternative to GPT-4V for evaluation. Use the `--provider minimax` flag:
+
+```bash
+export MINIMAX_API_KEY="your-minimax-api-key"
+export project_dir=MLLM_eval
+cd $project_dir
+python gpt4v_eval.py --provider minimax --category "color" --start 0 --step 10
+```
+
+The `--provider` argument accepts `openai` (default, uses GPT-4V) or `minimax` (uses MiniMax-M2.7). The API key is read from `OPENAI_API_KEY` or `MINIMAX_API_KEY` respectively.
 
 The output files are formatted as a json file named "gpt4v_result\_{start}\_{step}.json" in "examples/gpt4v" directory.
 
