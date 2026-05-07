@@ -10,10 +10,26 @@ import time
 import sys
 
 # OpenAI API Key
-api_key = "" # TODO add your api key
+api_key = os.environ.get("OPENAI_API_KEY", "")  # set via env var or replace with your key
+
+# MiniMax API Key
+MINIMAX_API_KEY = os.environ.get("MINIMAX_API_KEY", "")
+
+PROVIDER_CONFIGS = {
+    "openai": {
+        "base_url": "https://api.openai.com/v1/chat/completions",
+        "model": "gpt-4-vision-preview",
+        "api_key_env": "OPENAI_API_KEY",
+    },
+    "minimax": {
+        "base_url": "https://api.minimax.io/v1/chat/completions",
+        "model": "MiniMax-M2.7",
+        "api_key_env": "MINIMAX_API_KEY",
+    },
+}
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Evaluation by GPT-4V.")
+    parser = argparse.ArgumentParser(description="Evaluation by GPT-4V or MiniMax M2.7.")
     parser.add_argument(
         "--image_path",
         type=str,
@@ -34,16 +50,23 @@ def parse_args():
     )
     parser.add_argument(
         "--step",
-        type=int, 
-        default=10, 
+        type=int,
+        default=10,
         help="Number of images to step.",
     )
-    
+    parser.add_argument(
+        "--provider",
+        type=str,
+        default="openai",
+        choices=["openai", "minimax"],
+        help="LLM provider for vision evaluation: 'openai' (GPT-4V) or 'minimax' (MiniMax M2.7). "
+             "Set the corresponding API key via OPENAI_API_KEY or MINIMAX_API_KEY env var.",
+    )
 
     return parser.parse_args()
 
-        
-    
+
+
 
 # Function to encode the image
 def encode_image(image_path):
@@ -52,7 +75,18 @@ def encode_image(image_path):
 
 def main():
     args = parse_args()
-    
+
+    provider = args.provider
+    cfg = PROVIDER_CONFIGS[provider]
+    resolved_api_key = os.environ.get(cfg["api_key_env"], "")
+    if not resolved_api_key and provider == "openai":
+        resolved_api_key = api_key  # fallback to module-level variable
+    if not resolved_api_key:
+        print(f"Warning: {cfg['api_key_env']} is not set. Requests will likely fail.")
+
+    model = cfg["model"]
+    endpoint = cfg["base_url"]
+
     # Path to your image
     try:
         image_path_total = os.path.join(args.image_path,"samples") # TODO
@@ -63,21 +97,21 @@ def main():
     step = args.step
     image_file = os.listdir(image_path_total)
     image_file.sort(key=lambda x: int(x.split("_")[-1].split('.')[0]))
-    
+
     gpt4v_record = []
     gpt4v_result = []
-    for i in tqdm(range(start, len(image_file) ,step), desc="GPT-4V processing"):
+    for i in tqdm(range(start, len(image_file) ,step), desc=f"{provider} processing"):
         image_path = os.path.join(image_path_total, image_file[i])
-        
+
         prompt_name = image_file[i].split("_")[0] # eg. "a green bench and a red car"
-        
+
 
         if category == "color" or category == "shape" or category == "texture":
             # use spacy to extract the noun phrase
             nlp = spacy.load("en_core_web_sm")
             doc = nlp(prompt_name)
             num_np = len(list(doc.noun_chunks))
-            
+
             prompt = [] # save as the format as np, noun, adj.
             for chunk in doc.noun_chunks:
                 # extract the noun and adj. separately
@@ -93,9 +127,9 @@ def main():
                 prompt_each = [[f"{chunk_np}"], [f"{noun}"], [f"{adj}"]]
 
                 prompt.append(prompt_each)
-            
+
             question_for_gpt4v = []
-            
+
             for k in range(num_np):
                 text = f"You are my assistant to identify any objects and their {category} in the image. \
                     According to the image, evaluate if there is a {prompt[k][0][0]} in the image. \
@@ -108,7 +142,7 @@ def main():
                     explanation (within 20 words)."
                 dic = {"type": "text", "text": text}
                 question_for_gpt4v.append(dic)
-                
+
         elif category == "spatial" or "3d_spatial":
             question_for_gpt4v = []
             num_np = 1
@@ -123,9 +157,9 @@ def main():
                     Provide your analysis and explanation in JSON format with the following keys: score (e.g., 2), \
                     explanation (within 20 words)."
             dic = {"type": "text", "text": text}
-            question_for_gpt4v.append(dic)   
-        
-        elif category == "action": 
+            question_for_gpt4v.append(dic)
+
+        elif category == "action":
             question_for_gpt4v = []
             num_np = 1
             text = f"You are my assistant to identify the actions, events, objects and their relationships in the image. \
@@ -137,10 +171,10 @@ def main():
                 2: the image failed to convey the full scope of the text. \
                 1: the image did not depict any actions or events that match the text. \
                 Provide your analysis and explanation in JSON format with the following keys: score (e.g., 2), \
-                explanation (within 20 words)."       
+                explanation (within 20 words)."
             dic = {"type": "text", "text": text}
-            question_for_gpt4v.append(dic) 
-        
+            question_for_gpt4v.append(dic)
+
         elif category == "numeracy":
             question_for_gpt4v = []
             num_np = 1
@@ -154,8 +188,8 @@ def main():
                 1: image almost irrelevant to the text \
                 Provide your analysis and explanation in JSON format with the following keys: score (e.g., 2), explanation (within 20 words)."
             dic = {"type": "text", "text": text}
-            question_for_gpt4v.append(dic) 
-                            
+            question_for_gpt4v.append(dic)
+
         elif category == "complex":
             question_for_gpt4v = []
             num_np = 1
@@ -170,13 +204,13 @@ def main():
                         1: the image failed to convey the full scope in the text prompt. \
                         Provide your analysis and explanation in JSON format with the following keys: score (e.g., 2), explanation (within 20 words)."
             dic = {"type": "text", "text": text}
-            question_for_gpt4v.append(dic)     
-                            
-        
-        
+            question_for_gpt4v.append(dic)
+
+
+
         # Getting the base64 string
         base64_image = encode_image(image_path)
-        
+
         # question content
         content_list = [
             {
@@ -185,14 +219,14 @@ def main():
                 "url": f"data:image/jpeg;base64,{base64_image}"
             }
             },]+ [question_for_gpt4v[num_q] for num_q in range(num_np)]
-            
+
         headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {api_key}"
+        "Authorization": f"Bearer {resolved_api_key}"
         }
 
         payload = {
-        "model": "gpt-4-vision-preview",
+        "model": model,
         "messages": [
             {
             "role": "user",
@@ -206,12 +240,12 @@ def main():
         attempt_count = 0
         while True:
             try:
-                response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
+                response = requests.post(endpoint, headers=headers, json=payload)
 
                 # print(response.json())
                 time.sleep(20)
 
-                
+
                 # Define a regular expression pattern to find all occurrences of the score
                 pattern = r'"score": (\d+),'
 
@@ -225,7 +259,7 @@ def main():
 
                 # Calculate the average score
                 average_score = sum(scores) / len(scores) if len(scores) > 0 else 0
-            
+
                 break
             except:
                 print("Error! Try again!")
@@ -245,21 +279,21 @@ def main():
                     break  # Exit the loop even if the maximum attempts are not reached
                 else:
                     continue
-        
+
         # save image path and response to json
         outpath = os.path.join(args.image_path, "gpt4v")
         os.makedirs(outpath, exist_ok=True)
-        
+
         gpt4v_record.append({"image_path": image_path, "response": response.json()})
         with open (f"{outpath}/gpt4v_record_{start}_{step}.json", "w") as f:
             json.dump(gpt4v_record, f)
-        
+
         # save image number and score to json
         question_id = int(image_file[i].split("_")[-1].split('.')[0])
         gpt4v_result.append({"question_id": question_id, "answer": average_score})
         with open (f"{outpath}/gpt4v_result_{start}_{step}.json", "w") as f:
             json.dump(gpt4v_result, f)
-    
+
     # calculate the avg
     score_list = [gpt4v_result[i]["answer"] for i in range(len(gpt4v_result))]
     avg_score = sum(score_list) / len(score_list)
@@ -268,7 +302,7 @@ def main():
     with open (f"{outpath}/avg_score_{start}_{step}.txt", "w") as f:
         f.write(f"The average score is {avg_score}")
 
-    
+
 if __name__ == "__main__":
-    main()   
-    
+    main()
+
