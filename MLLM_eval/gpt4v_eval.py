@@ -23,13 +23,14 @@ PROVIDER_CONFIGS = {
     },
     "minimax": {
         "base_url": "https://api.minimax.io/v1/chat/completions",
-        "model": "MiniMax-M2.7",
+        "model": "MiniMax-M3",
+        "models": ["MiniMax-M3", "MiniMax-M2.7", "MiniMax-M2.7-highspeed"],
         "api_key_env": "MINIMAX_API_KEY",
     },
 }
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Evaluation by GPT-4V or MiniMax M2.7.")
+    parser = argparse.ArgumentParser(description="Evaluation by GPT-4V or MiniMax (M3 by default, M2.7 still available).")
     parser.add_argument(
         "--image_path",
         type=str,
@@ -59,8 +60,15 @@ def parse_args():
         type=str,
         default="openai",
         choices=["openai", "minimax"],
-        help="LLM provider for vision evaluation: 'openai' (GPT-4V) or 'minimax' (MiniMax M2.7). "
+        help="LLM provider for vision evaluation: 'openai' (GPT-4V) or 'minimax' (MiniMax, defaults to M3). "
              "Set the corresponding API key via OPENAI_API_KEY or MINIMAX_API_KEY env var.",
+    )
+    parser.add_argument(
+        "--model",
+        type=str,
+        default=None,
+        help="Override the provider's default model. For 'minimax' choose MiniMax-M3 (default), "
+             "MiniMax-M2.7, or MiniMax-M2.7-highspeed. Defaults to the provider's configured model.",
     )
 
     return parser.parse_args()
@@ -84,7 +92,7 @@ def main():
     if not resolved_api_key:
         print(f"Warning: {cfg['api_key_env']} is not set. Requests will likely fail.")
 
-    model = cfg["model"]
+    model = args.model or cfg["model"]
     endpoint = cfg["base_url"]
 
     # Path to your image

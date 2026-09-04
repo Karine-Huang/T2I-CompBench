@@ -52,8 +52,23 @@ class TestProviderConfigs(unittest.TestCase):
         self.assertIn("api.minimax.io", PROVIDER_CONFIGS["minimax"]["base_url"])
         self.assertIn("/v1/chat/completions", PROVIDER_CONFIGS["minimax"]["base_url"])
 
-    def test_minimax_model_is_m27(self):
-        self.assertEqual(PROVIDER_CONFIGS["minimax"]["model"], "MiniMax-M2.7")
+    def test_minimax_default_model_is_m3(self):
+        self.assertEqual(PROVIDER_CONFIGS["minimax"]["model"], "MiniMax-M3")
+
+    def test_minimax_models_list_m3_first(self):
+        models = PROVIDER_CONFIGS["minimax"]["models"]
+        self.assertEqual(models[0], "MiniMax-M3")  # M3 is the new default / listed first
+
+    def test_minimax_retains_m27(self):
+        self.assertIn("MiniMax-M2.7", PROVIDER_CONFIGS["minimax"]["models"])
+
+    def test_minimax_retains_m27_highspeed(self):
+        self.assertIn("MiniMax-M2.7-highspeed", PROVIDER_CONFIGS["minimax"]["models"])
+
+    def test_minimax_drops_deprecated_models(self):
+        models = PROVIDER_CONFIGS["minimax"]["models"]
+        for old in ("MiniMax-M2.5", "MiniMax-M2.1", "MiniMax-M2", "MiniMax-M1"):
+            self.assertNotIn(old, models)
 
     def test_minimax_api_key_env(self):
         self.assertEqual(PROVIDER_CONFIGS["minimax"]["api_key_env"], "MINIMAX_API_KEY")
@@ -81,6 +96,14 @@ class TestArgParser(unittest.TestCase):
     def test_minimax_provider_flag(self):
         args = self._parse(["--provider", "minimax"])
         self.assertEqual(args.provider, "minimax")
+
+    def test_model_defaults_to_none(self):
+        args = self._parse(["--provider", "minimax"])
+        self.assertIsNone(args.model)
+
+    def test_model_override_flag(self):
+        args = self._parse(["--provider", "minimax", "--model", "MiniMax-M2.7"])
+        self.assertEqual(args.model, "MiniMax-M2.7")
 
     def test_invalid_provider_raises(self):
         with self.assertRaises(SystemExit):
@@ -142,11 +165,11 @@ class TestRequestPayload(unittest.TestCase):
             "max_tokens": 300,
         }
 
-    def test_minimax_payload_uses_m27(self):
+    def test_minimax_payload_uses_m3(self):
         cfg = PROVIDER_CONFIGS["minimax"]
         content = [{"type": "text", "text": "hello"}]
         payload = self._make_payload("minimax", cfg["model"], content)
-        self.assertEqual(payload["model"], "MiniMax-M2.7")
+        self.assertEqual(payload["model"], "MiniMax-M3")
 
     def test_openai_payload_uses_gpt4v(self):
         cfg = PROVIDER_CONFIGS["openai"]
@@ -186,7 +209,7 @@ class TestIntegrationMiniMaxRequest(unittest.TestCase):
         mock_post.return_value = self._mock_response()
         endpoint = PROVIDER_CONFIGS["minimax"]["base_url"]
         headers = {"Authorization": "Bearer fake-key"}
-        payload = {"model": "MiniMax-M2.7", "messages": [], "max_tokens": 300}
+        payload = {"model": "MiniMax-M3", "messages": [], "max_tokens": 300}
         import requests as req
         req.post(endpoint, headers=headers, json=payload)
         mock_post.assert_called_once_with(endpoint, headers=headers, json=payload)

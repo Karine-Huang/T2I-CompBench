@@ -204,9 +204,9 @@ cd $project_dir
 python gpt4v_eval.py --category "color" --start 0 --step 10
 ```
 
-##### MiniMax M2.7 (alternative to GPT-4V):
+##### MiniMax M3 (alternative to GPT-4V):
 
-[MiniMax M2.7](https://www.minimax.io) is a multimodal LLM with vision support and an OpenAI-compatible API, providing a cost-effective alternative to GPT-4V for evaluation. Use the `--provider minimax` flag:
+[MiniMax M3](https://www.minimax.io) is a multimodal LLM with vision support and an OpenAI-compatible API, providing a cost-effective alternative to GPT-4V for evaluation. Use the `--provider minimax` flag:
 
 ```bash
 export MINIMAX_API_KEY="your-minimax-api-key"
@@ -215,7 +215,7 @@ cd $project_dir
 python gpt4v_eval.py --provider minimax --category "color" --start 0 --step 10
 ```
 
-The `--provider` argument accepts `openai` (default, uses GPT-4V) or `minimax` (uses MiniMax-M2.7). The API key is read from `OPENAI_API_KEY` or `MINIMAX_API_KEY` respectively.
+The `--provider` argument accepts `openai` (default, uses GPT-4V) or `minimax` (uses MiniMax-M3 by default). The API key is read from `OPENAI_API_KEY` or `MINIMAX_API_KEY` respectively. To use a previous MiniMax model instead, pass `--model MiniMax-M2.7` or `--model MiniMax-M2.7-highspeed`.
 
 The output files are formatted as a json file named "gpt4v_result\_{start}\_{step}.json" in "examples/gpt4v" directory.
 
