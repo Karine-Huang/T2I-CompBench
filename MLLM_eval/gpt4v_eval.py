@@ -151,7 +151,7 @@ def main():
                 dic = {"type": "text", "text": text}
                 question_for_gpt4v.append(dic)
 
-        elif category == "spatial" or "3d_spatial":
+        elif category == "spatial" or category == "3d_spatial":
             question_for_gpt4v = []
             num_np = 1
             text = f"You are my assistant to identify objects and their spatial layout in the image. \
